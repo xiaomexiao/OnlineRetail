@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.shop.mapper.BrandGoodsMapper" >
+  <resultMap id="BaseResultMap" type="com.shop.pojo.BrandGoods" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="title" property="title" jdbcType="VARCHAR" />
+    <result column="length" property="length" jdbcType="DOUBLE" />
+    <result column="width" property="width" jdbcType="DOUBLE" />
+    <result column="height" property="height" jdbcType="DOUBLE" />
+    <result column="weight" property="weight" jdbcType="DOUBLE" />
+    <result column="price" property="price" jdbcType="VARCHAR" />
+    <result column="repertory" property="repertory" jdbcType="VARCHAR" />
+    <result column="sku" property="sku" jdbcType="VARCHAR" />
+    <result column="upc" property="upc" jdbcType="VARCHAR" />
+    <result column="ena" property="ena" jdbcType="VARCHAR" />
+    <result column="model" property="model" jdbcType="VARCHAR" />
+    <result column="guarantee" property="guarantee" jdbcType="VARCHAR" />
+    <result column="ebay_description" property="ebay_description" jdbcType="VARCHAR" />
+    <result column="photo" property="photo" jdbcType="VARCHAR" />
+    <result column="amazon_description" property="amazon_description" jdbcType="VARCHAR" />
+    <result column="status" property="status" jdbcType="INTEGER" />
+    <result column="add_date" property="add_date" jdbcType="TIMESTAMP" />
+    <result column="user_id" property="user_id" jdbcType="INTEGER" />
+    <result column="type_id" property="type_id" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, title, length, width, height, weight, price, repertory, sku, upc, ena, model, 
+    guarantee, ebay_description, photo, amazon_description, status, add_date, user_id, 
+    type_id
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from brand_goods
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from brand_goods
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.shop.pojo.BrandGoods" >
+    insert into brand_goods (id, title, length, 
+      width, height, weight, 
+      price, repertory, sku, 
+      upc, ena, model, guarantee, 
+      ebay_description, photo, amazon_description, 
+      status, add_date, user_id, 
+      type_id)
+    values (#{id,jdbcType=INTEGER}, #{title,jdbcType=VARCHAR}, #{length,jdbcType=DOUBLE}, 
+      #{width,jdbcType=DOUBLE}, #{height,jdbcType=DOUBLE}, #{weight,jdbcType=DOUBLE}, 
+      #{price,jdbcType=VARCHAR}, #{repertory,jdbcType=VARCHAR}, #{sku,jdbcType=VARCHAR}, 
+      #{upc,jdbcType=VARCHAR}, #{ena,jdbcType=VARCHAR}, #{model,jdbcType=VARCHAR}, #{guarantee,jdbcType=VARCHAR}, 
+      #{ebay_description,jdbcType=VARCHAR}, #{photo,jdbcType=VARCHAR}, #{amazon_description,jdbcType=VARCHAR}, 
+      #{status,jdbcType=INTEGER}, #{add_date,jdbcType=TIMESTAMP}, #{user_id,jdbcType=INTEGER}, 
+      #{type_id,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.shop.pojo.BrandGoods" >
+    insert into brand_goods
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="title != null" >
+        title,
+      </if>
+      <if test="length != null" >
+        length,
+      </if>
+      <if test="width != null" >
+        width,
+      </if>
+      <if test="height != null" >
+        height,
+      </if>
+      <if test="weight != null" >
+        weight,
+      </if>
+      <if test="price != null" >
+        price,
+      </if>
+      <if test="repertory != null" >
+        repertory,
+      </if>
+      <if test="sku != null" >
+        sku,
+      </if>
+      <if test="upc != null" >
+        upc,
+      </if>
+      <if test="ena != null" >
+        ena,
+      </if>
+      <if test="model != null" >
+        model,
+      </if>
+      <if test="guarantee != null" >
+        guarantee,
+      </if>
+      <if test="ebay_description != null" >
+        ebay_description,
+      </if>
+      <if test="photo != null" >
+        photo,
+      </if>
+      <if test="amazon_description != null" >
+        amazon_description,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="add_date != null" >
+        add_date,
+      </if>
+      <if test="user_id != null" >
+        user_id,
+      </if>
+      <if test="type_id != null" >
+        type_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="title != null" >
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="length != null" >
+        #{length,jdbcType=DOUBLE},
+      </if>
+      <if test="width != null" >
+        #{width,jdbcType=DOUBLE},
+      </if>
+      <if test="height != null" >
+        #{height,jdbcType=DOUBLE},
+      </if>
+      <if test="weight != null" >
+        #{weight,jdbcType=DOUBLE},
+      </if>
+      <if test="price != null" >
+        #{price,jdbcType=VARCHAR},
+      </if>
+      <if test="repertory != null" >
+        #{repertory,jdbcType=VARCHAR},
+      </if>
+      <if test="sku != null" >
+        #{sku,jdbcType=VARCHAR},
+      </if>
+      <if test="upc != null" >
+        #{upc,jdbcType=VARCHAR},
+      </if>
+      <if test="ena != null" >
+        #{ena,jdbcType=VARCHAR},
+      </if>
+      <if test="model != null" >
+        #{model,jdbcType=VARCHAR},
+      </if>
+      <if test="guarantee != null" >
+        #{guarantee,jdbcType=VARCHAR},
+      </if>
+      <if test="ebay_description != null" >
+        #{ebay_description,jdbcType=VARCHAR},
+      </if>
+      <if test="photo != null" >
+        #{photo,jdbcType=VARCHAR},
+      </if>
+      <if test="amazon_description != null" >
+        #{amazon_description,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="add_date != null" >
+        #{add_date,jdbcType=TIMESTAMP},
+      </if>
+      <if test="user_id != null" >
+        #{user_id,jdbcType=INTEGER},
+      </if>
+      <if test="type_id != null" >
+        #{type_id,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.shop.pojo.BrandGoods" >
+    update brand_goods
+    <set >
+      <if test="title != null" >
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="length != null" >
+        length = #{length,jdbcType=DOUBLE},
+      </if>
+      <if test="width != null" >
+        width = #{width,jdbcType=DOUBLE},
+      </if>
+      <if test="height != null" >
+        height = #{height,jdbcType=DOUBLE},
+      </if>
+      <if test="weight != null" >
+        weight = #{weight,jdbcType=DOUBLE},
+      </if>
+      <if test="price != null" >
+        price = #{price,jdbcType=VARCHAR},
+      </if>
+      <if test="repertory != null" >
+        repertory = #{repertory,jdbcType=VARCHAR},
+      </if>
+      <if test="sku != null" >
+        sku = #{sku,jdbcType=VARCHAR},
+      </if>
+      <if test="upc != null" >
+        upc = #{upc,jdbcType=VARCHAR},
+      </if>
+      <if test="ena != null" >
+        ena = #{ena,jdbcType=VARCHAR},
+      </if>
+      <if test="model != null" >
+        model = #{model,jdbcType=VARCHAR},
+      </if>
+      <if test="guarantee != null" >
+        guarantee = #{guarantee,jdbcType=VARCHAR},
+      </if>
+      <if test="ebay_description != null" >
+        ebay_description = #{ebay_description,jdbcType=VARCHAR},
+      </if>
+      <if test="photo != null" >
+        photo = #{photo,jdbcType=VARCHAR},
+      </if>
+      <if test="amazon_description != null" >
+        amazon_description = #{amazon_description,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="add_date != null" >
+        add_date = #{add_date,jdbcType=TIMESTAMP},
+      </if>
+      <if test="user_id != null" >
+        user_id = #{user_id,jdbcType=INTEGER},
+      </if>
+      <if test="type_id != null" >
+        type_id = #{type_id,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.shop.pojo.BrandGoods" >
+    update brand_goods
+    set title = #{title,jdbcType=VARCHAR},
+      length = #{length,jdbcType=DOUBLE},
+      width = #{width,jdbcType=DOUBLE},
+      height = #{height,jdbcType=DOUBLE},
+      weight = #{weight,jdbcType=DOUBLE},
+      price = #{price,jdbcType=VARCHAR},
+      repertory = #{repertory,jdbcType=VARCHAR},
+      sku = #{sku,jdbcType=VARCHAR},
+      upc = #{upc,jdbcType=VARCHAR},
+      ena = #{ena,jdbcType=VARCHAR},
+      model = #{model,jdbcType=VARCHAR},
+      guarantee = #{guarantee,jdbcType=VARCHAR},
+      ebay_description = #{ebay_description,jdbcType=VARCHAR},
+      photo = #{photo,jdbcType=VARCHAR},
+      amazon_description = #{amazon_description,jdbcType=VARCHAR},
+      status = #{status,jdbcType=INTEGER},
+      add_date = #{add_date,jdbcType=TIMESTAMP},
+      user_id = #{user_id,jdbcType=INTEGER},
+      type_id = #{type_id,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
