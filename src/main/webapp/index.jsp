@@ -1,9 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+         pageEncoding="UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
-String path = request.getContextPath();
-String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+    String path = request.getContextPath();
+    String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
 %>
 <!DOCTYPE html>
 <html>
@@ -12,27 +12,29 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <title>Title</title>
 </head>
 
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/bootstrap-responsive.min.css">
-    <link rel="stylesheet" href="css/font-awesome.min.css">
-    <link rel="stylesheet" href="css/ace.min.css">
-    <link rel="stylesheet" href="css/ace-skins.min.css">
-    <link rel="stylesheet" href="css/ace-responsive.min.css">
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/bootstrap-responsive.min.css">
+<link rel="stylesheet" href="css/font-awesome.min.css">
+<link rel="stylesheet" href="css/ace.min.css">
+<link rel="stylesheet" href="css/ace-skins.min.css">
+<link rel="stylesheet" href="css/ace-responsive.min.css">
 
-    <style>
-        #sidebar{
-            left: 0;
-            margin-top: 0;
-        }
-        body,html{
-            width: 100%;
-            height: 100%;
-        }
-        .blue{
-            color:blue;
-        }
+<style>
+    #sidebar {
+        left: 0;
+        margin-top: 0;
+    }
 
-    </style>
+    body, html {
+        width: 100%;
+        height: 100%;
+    }
+
+    .blue {
+        color: blue;
+    }
+
+</style>
 
 <body>
 <div class="navbar navbar-inverse">
@@ -90,27 +92,21 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     </div><!-- #sidebar-shortcuts -->
 
 
-
     <ul class="nav nav-list">
-
 
 
         <li>
 
-            <a href="brand-addbrand.html" target="menuFrame">
+            <a href="/BrandInfo/toAddbrand" target="menuFrame">
 
                 <i class="icon-dashboard"></i>
 
                 <span>品牌商-我的信息</span>
 
 
-
             </a>
 
         </li>
-
-
-
 
 
         <li>
@@ -120,7 +116,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 <i class="icon-text-width"></i>
 
                 <span>品牌商-商品录入</span>
-
 
 
             </a>
@@ -135,7 +130,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 <span>品牌商-商品主图</span>
 
 
-
             </a>
 
         </li>
@@ -143,7 +137,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
         <li>
 
-            <a href="brand-orderlist.html" class="dropdown-toggle" target="menuFrame">
+            <a href="/BrandOrders/list" class="dropdown-toggle" target="menuFrame">
 
                 <i class="icon-file"></i>
 
@@ -168,9 +162,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         </li>
 
 
-
-
-
         <li>
 
             <a href="bvo-myInfo.html" target="menuFrame">
@@ -180,13 +171,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 <span>借卖方-我的信息</span>
 
 
-
             </a>
 
         </li>
-
-
-
 
 
         <li>
@@ -211,7 +198,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 <span>借卖方-商品浏览</span>
 
 
-
             </a>
 
         </li>
@@ -226,13 +212,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 <span>借卖方-心愿单</span>
 
 
-
             </a>
 
         </li>
-
-
-
 
 
         <li>
@@ -242,7 +224,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 <i class="icon-calendar"></i>
 
                 <span>借卖方-订单管理</span>
-
 
 
             </a>
@@ -257,12 +238,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 <span>借卖方-我的钱包</span>
 
 
-
             </a>
 
         </li>
-
-
 
 
         <li>
@@ -274,13 +252,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 <span>数据字典管理</span>
 
 
-
             </a>
 
         </li>
-
-
-
 
 
         <li>
@@ -290,7 +264,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 <i class="icon-th"></i>
 
                 <span>参数管理</span>
-
 
 
             </a>
@@ -311,10 +284,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     </ul><!--/.nav-list-->
 
 
-
     <div id="sidebar-collapse"><i class="icon-double-angle-left"></i></div>
 </div>
-<iframe id="menuFrame" name="menuFrame" src="brand-addbrand.html" frameborder="no" width="100%" height="100%">
+<iframe id="menuFrame" name="menuFrame" src="brand-addbrand.jsp" frameborder="no" width="100%" height="100%">
 </iframe>
 </body>
 <script src="js/jquery-1.9.1.js"></script>

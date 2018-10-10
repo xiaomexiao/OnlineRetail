@@ -1,15 +1,27 @@
-<!DOCTYPE html>
+<%--
+  Created by IntelliJ IDEA.
+  User: orz10
+  Date: 2018/10/8
+  Time: 20:21
+  To change this template use File | Settings | File Templates.
+--%>
+<%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" language="java" %>
+<%
+    String path = request.getContextPath();
+    String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
+%>
 <html lang="en">
 <head>
+    <base href="<%=basePath%>">
     <meta charset="utf-8">
-    <link rel="stylesheet" href="richText/bootstrap-combined.no-icons.min.css">
-    <link rel="stylesheet" href="css/bootstrap-responsive.min.css">
+    <link rel="stylesheet" href="/richText/bootstrap-combined.no-icons.min.css">
+    <link rel="stylesheet" href="/css/bootstrap-responsive.min.css">
     <link href="http://netdna.bootstrapcdn.com/font-awesome/3.0.2/css/font-awesome.css" rel="stylesheet">
-    <link rel="stylesheet" href="richText/index.css" type="text/css"></link>
-    <script src="js/jquery-1.9.1.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="richText/bootstrap-wysiwyg.js" type="text/javascript"></script>
-    <script src="richText/jquery.hotkeys.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="/richText/index.css" type="text/css"></link>
+    <script src="/js/jquery-1.9.1.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/richText/bootstrap-wysiwyg.js" type="text/javascript"></script>
+    <script src="/richText/jquery.hotkeys.js" type="text/javascript"></script>
     <style>
         body, html {
             width: 100%;
@@ -54,22 +66,22 @@
             <div class="modal-content">
 
                 <div class="modal-body" style="max-height:none">
-                    <form class="form-horizontal">
+                    <form class="form-horizontal" id="addForm" action="/BrandInfo/add" method="post">
 
                         <div class="control-group">
-                            <label class="control-label" for="form-field-1">Company Name<br>公司名称(中)</label>
+                            <label class="control-label">Company Name<br>公司名称(中)</label>
                             <div class="controls">
                                 <input type="text" id="company_name" name="company_name">
                             </div>
                         </div>
                         <div class="control-group">
-                            <label class="control-label" for="form-field-1">Company Name<br>公司名称(英)</label>
+                            <label class="control-label">Company Name<br>公司名称(英)</label>
                             <div class="controls">
                                 <input type="text" id="english_name" name="english_name">
                             </div>
                         </div>
                         <div class="control-group">
-                            <label class="control-label" for="form-field-1">Brief Introduction<br>公司简介</label>
+                            <label class="control-label">Brief Introduction<br>公司简介</label>
                             <div class="controls">
                                 <div class="btn-toolbar" data-role="editor-toolbar" data-target="#editor">
                                     <div class="btn-group">
@@ -129,22 +141,23 @@
                                 </div>
 
                                 <div id="editor">
-                                    输入内容&hellip;
                                 </div>
+                                <%--隐藏的input读取editor里的值--%>
+                                <input type="hidden" id="introduction" name="introduction">
                             </div>
                         </div>
 
                         <div class="control-group">
-                            <label class="control-label" for="form-field-1">GMC Report Type<br> 品牌商认证类型</label>
+                            <label class="control-label">GMC Report Type<br> 品牌商认证类型</label>
                             <div class="controls">
-                                <input type="text" id="form-field-1">
+                                <input type="text" id="repory_type" name="repory_type">
                             </div>
                         </div>
 
                         <div class="control-group">
-                            <label class="control-label" for="form-field-1">GMC Report Url<br>证书地址</label>
+                            <label class="control-label">GMC Report Url<br>证书地址</label>
                             <div class="controls">
-                                <input type="text" id="form-field-1">
+                                <input type="text" id="report_url" name="report_url">
                             </div>
                         </div>
 
@@ -213,9 +226,17 @@
     };
     initToolbarBootstrapBindings();
     $('#editor').wysiwyg({fileUploadError: showErrorAlert});
+    /*neo*/
     $('#btnsave').click(function () {
-        window.location.href = "brand-brandInput.html";
+        // window.location.href = "brand-brandInput.html";
+        var introduction = $("#editor").html();
+        console.log(introduction)
+        $("#introduction").val(introduction)
+        $("#addForm").submit()
     })
 </script>
+
 </body>
 </html>
+
+
