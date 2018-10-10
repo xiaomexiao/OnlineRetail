@@ -2,6 +2,8 @@ package com.shop.mapper;
 
 import com.shop.pojo.BrandOrders;
 
+import java.util.ArrayList;
+
 public interface BrandOrdersMapper {
     int deleteByPrimaryKey(Integer id);
 
@@ -14,4 +16,9 @@ public interface BrandOrdersMapper {
     int updateByPrimaryKeySelective(BrandOrders record);
 
     int updateByPrimaryKey(BrandOrders record);
+
+//    neo
+
+    ArrayList<BrandOrders> listAll(BrandOrders brandOrders);
+
 }

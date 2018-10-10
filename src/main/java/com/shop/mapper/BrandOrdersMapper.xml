@@ -1,32 +1,32 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.shop.mapper.BrandOrdersMapper" >
-  <resultMap id="BaseResultMap" type="com.shop.pojo.BrandOrders" >
-    <id column="id" property="id" jdbcType="INTEGER" />
-    <result column="title" property="title" jdbcType="VARCHAR" />
-    <result column="price" property="price" jdbcType="VARCHAR" />
-    <result column="quantity" property="quantity" jdbcType="INTEGER" />
-    <result column="sku" property="sku" jdbcType="VARCHAR" />
-    <result column="orderno" property="orderno" jdbcType="VARCHAR" />
-    <result column="create_time" property="create_time" jdbcType="TIMESTAMP" />
-    <result column="status" property="status" jdbcType="INTEGER" />
-    <result column="transportno" property="transportno" jdbcType="VARCHAR" />
-    <result column="user_id" property="user_id" jdbcType="INTEGER" />
-  </resultMap>
-  <sql id="Base_Column_List" >
+<mapper namespace="com.shop.mapper.BrandOrdersMapper">
+    <resultMap id="BaseResultMap" type="com.shop.pojo.BrandOrders">
+        <id column="id" property="id" jdbcType="INTEGER"/>
+        <result column="title" property="title" jdbcType="VARCHAR"/>
+        <result column="price" property="price" jdbcType="VARCHAR"/>
+        <result column="quantity" property="quantity" jdbcType="INTEGER"/>
+        <result column="sku" property="sku" jdbcType="VARCHAR"/>
+        <result column="orderno" property="orderno" jdbcType="VARCHAR"/>
+        <result column="create_time" property="create_time" jdbcType="TIMESTAMP"/>
+        <result column="status" property="status" jdbcType="INTEGER"/>
+        <result column="transportno" property="transportno" jdbcType="VARCHAR"/>
+        <result column="user_id" property="user_id" jdbcType="INTEGER"/>
+    </resultMap>
+    <sql id="Base_Column_List">
     id, title, price, quantity, sku, orderno, create_time, status, transportno, user_id
   </sql>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
-    select 
-    <include refid="Base_Column_List" />
-    from brand_orders
-    where id = #{id,jdbcType=INTEGER}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+        select
+        <include refid="Base_Column_List"/>
+        from brand_orders
+        where id = #{id,jdbcType=INTEGER}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from brand_orders
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.shop.pojo.BrandOrders" >
+    <insert id="insert" parameterType="com.shop.pojo.BrandOrders">
     insert into brand_orders (id, title, price, 
       quantity, sku, orderno, 
       create_time, status, transportno, 
@@ -36,107 +36,107 @@
       #{create_time,jdbcType=TIMESTAMP}, #{status,jdbcType=INTEGER}, #{transportno,jdbcType=VARCHAR}, 
       #{user_id,jdbcType=INTEGER})
   </insert>
-  <insert id="insertSelective" parameterType="com.shop.pojo.BrandOrders" >
-    insert into brand_orders
-    <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="id != null" >
-        id,
-      </if>
-      <if test="title != null" >
-        title,
-      </if>
-      <if test="price != null" >
-        price,
-      </if>
-      <if test="quantity != null" >
-        quantity,
-      </if>
-      <if test="sku != null" >
-        sku,
-      </if>
-      <if test="orderno != null" >
-        orderno,
-      </if>
-      <if test="create_time != null" >
-        create_time,
-      </if>
-      <if test="status != null" >
-        status,
-      </if>
-      <if test="transportno != null" >
-        transportno,
-      </if>
-      <if test="user_id != null" >
-        user_id,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="id != null" >
-        #{id,jdbcType=INTEGER},
-      </if>
-      <if test="title != null" >
-        #{title,jdbcType=VARCHAR},
-      </if>
-      <if test="price != null" >
-        #{price,jdbcType=VARCHAR},
-      </if>
-      <if test="quantity != null" >
-        #{quantity,jdbcType=INTEGER},
-      </if>
-      <if test="sku != null" >
-        #{sku,jdbcType=VARCHAR},
-      </if>
-      <if test="orderno != null" >
-        #{orderno,jdbcType=VARCHAR},
-      </if>
-      <if test="create_time != null" >
-        #{create_time,jdbcType=TIMESTAMP},
-      </if>
-      <if test="status != null" >
-        #{status,jdbcType=INTEGER},
-      </if>
-      <if test="transportno != null" >
-        #{transportno,jdbcType=VARCHAR},
-      </if>
-      <if test="user_id != null" >
-        #{user_id,jdbcType=INTEGER},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.shop.pojo.BrandOrders" >
-    update brand_orders
-    <set >
-      <if test="title != null" >
-        title = #{title,jdbcType=VARCHAR},
-      </if>
-      <if test="price != null" >
-        price = #{price,jdbcType=VARCHAR},
-      </if>
-      <if test="quantity != null" >
-        quantity = #{quantity,jdbcType=INTEGER},
-      </if>
-      <if test="sku != null" >
-        sku = #{sku,jdbcType=VARCHAR},
-      </if>
-      <if test="orderno != null" >
-        orderno = #{orderno,jdbcType=VARCHAR},
-      </if>
-      <if test="create_time != null" >
-        create_time = #{create_time,jdbcType=TIMESTAMP},
-      </if>
-      <if test="status != null" >
-        status = #{status,jdbcType=INTEGER},
-      </if>
-      <if test="transportno != null" >
-        transportno = #{transportno,jdbcType=VARCHAR},
-      </if>
-      <if test="user_id != null" >
-        user_id = #{user_id,jdbcType=INTEGER},
-      </if>
-    </set>
-    where id = #{id,jdbcType=INTEGER}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.shop.pojo.BrandOrders" >
+    <insert id="insertSelective" parameterType="com.shop.pojo.BrandOrders">
+        insert into brand_orders
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="title != null">
+                title,
+            </if>
+            <if test="price != null">
+                price,
+            </if>
+            <if test="quantity != null">
+                quantity,
+            </if>
+            <if test="sku != null">
+                sku,
+            </if>
+            <if test="orderno != null">
+                orderno,
+            </if>
+            <if test="create_time != null">
+                create_time,
+            </if>
+            <if test="status != null">
+                status,
+            </if>
+            <if test="transportno != null">
+                transportno,
+            </if>
+            <if test="user_id != null">
+                user_id,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=INTEGER},
+            </if>
+            <if test="title != null">
+                #{title,jdbcType=VARCHAR},
+            </if>
+            <if test="price != null">
+                #{price,jdbcType=VARCHAR},
+            </if>
+            <if test="quantity != null">
+                #{quantity,jdbcType=INTEGER},
+            </if>
+            <if test="sku != null">
+                #{sku,jdbcType=VARCHAR},
+            </if>
+            <if test="orderno != null">
+                #{orderno,jdbcType=VARCHAR},
+            </if>
+            <if test="create_time != null">
+                #{create_time,jdbcType=TIMESTAMP},
+            </if>
+            <if test="status != null">
+                #{status,jdbcType=INTEGER},
+            </if>
+            <if test="transportno != null">
+                #{transportno,jdbcType=VARCHAR},
+            </if>
+            <if test="user_id != null">
+                #{user_id,jdbcType=INTEGER},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.shop.pojo.BrandOrders">
+        update brand_orders
+        <set>
+            <if test="title != null">
+                title = #{title,jdbcType=VARCHAR},
+            </if>
+            <if test="price != null">
+                price = #{price,jdbcType=VARCHAR},
+            </if>
+            <if test="quantity != null">
+                quantity = #{quantity,jdbcType=INTEGER},
+            </if>
+            <if test="sku != null">
+                sku = #{sku,jdbcType=VARCHAR},
+            </if>
+            <if test="orderno != null">
+                orderno = #{orderno,jdbcType=VARCHAR},
+            </if>
+            <if test="create_time != null">
+                create_time = #{create_time,jdbcType=TIMESTAMP},
+            </if>
+            <if test="status != null">
+                status = #{status,jdbcType=INTEGER},
+            </if>
+            <if test="transportno != null">
+                transportno = #{transportno,jdbcType=VARCHAR},
+            </if>
+            <if test="user_id != null">
+                user_id = #{user_id,jdbcType=INTEGER},
+            </if>
+        </set>
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.shop.pojo.BrandOrders">
     update brand_orders
     set title = #{title,jdbcType=VARCHAR},
       price = #{price,jdbcType=VARCHAR},
@@ -149,4 +149,12 @@
       user_id = #{user_id,jdbcType=INTEGER}
     where id = #{id,jdbcType=INTEGER}
   </update>
+
+    <!--neo-->
+    <select id="listAll" resultMap="BaseResultMap" parameterType="com.shop.pojo.BrandOrders">
+        select
+        <include refid="Base_Column_List"/>
+        from brand_orders
+    </select>
+
 </mapper>

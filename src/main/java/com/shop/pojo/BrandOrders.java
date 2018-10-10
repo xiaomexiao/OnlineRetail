@@ -102,4 +102,20 @@ public class BrandOrders {
     public void setUser_id(Integer user_id) {
         this.user_id = user_id;
     }
+
+    @Override
+    public String toString() {
+        return "BrandOrders{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", price='" + price + '\'' +
+                ", quantity=" + quantity +
+                ", sku='" + sku + '\'' +
+                ", orderno='" + orderno + '\'' +
+                ", create_time=" + create_time +
+                ", status=" + status +
+                ", transportno='" + transportno + '\'' +
+                ", user_id=" + user_id +
+                '}';
+    }
 }
